@@ -19,7 +19,7 @@ class BaseTest(unittest.TestCase):
         self.driver.implicitly_wait(10)
         self.driver.maximize_window()
         self.driver.get(mainPageUrl)
-
+        # If the page was loaded incorrectly this logic will refresh the page
         navigationBarObj = NavigationBar(self.driver)
         if not navigationBarObj.is_update_location_button_visible():
             self.driver.refresh()
